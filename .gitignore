@@ -1,0 +1,6 @@
+.venv
+results
+.git
+__pycache__
+*.bak
+*.backup
