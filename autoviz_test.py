@@ -13,8 +13,9 @@ dfte = AV.AutoViz(
     sep=',',
     depVar='',  # target variable (if any)
     dfte=None,  # use this if passing a DataFrame instead of filename
-    header=0,
-    verbose=1,
+    header=1,
+    verbose=2,
+    
     lowess=False,
     chart_format='svg',
     max_rows_analyzed=150000,
