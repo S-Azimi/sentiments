@@ -24,36 +24,39 @@
 
 # Smith-Waterman Algorithm: Originally developed for local sequence alignment in bioinformatics, it can be adapted for string similarity. It's particularly good at finding similar substrings within larger strings1.
 
-# also we can use a comprehensive library like textdistance
-url_1 = "https://bankmellat.ir/"
+import textdistance
+
+print("\n")
+
+url_1 = "https://bankmellat.ir/default.aspx"
+url_1 = "https://bankmellat.ir"
 url_2 = "https://bankmalat.ir"
 
-url_1="abcdefghijklmno"
-url_2="bac"
+
+# url_1="abcdefgh"
+# url_2="abdcefgh"
+
+# Using q-grams with Jaccard distance
+levenshtein_distance = textdistance.levenshtein(url_1, url_2)
+print("levenshtein_distance",levenshtein_distance)
+
+dice_distance = textdistance.dice(url_1, url_2)  # by some difference, still 1!!
+print("dice_distance",dice_distance)
+
+jaro_winkler_distance = textdistance.jaro_winkler(url_1, url_2)
+print("Jaro_distance",jaro_winkler_distance)
+
+cosine_distance = textdistance.cosine.similarity(url_1, url_2)    # by some difference, still 1!!
+print("cosine_distance",cosine_distance)
+
+mlipns_distance = textdistance.mlipns(url_1, url_2)    # by some difference, still 1!!
+print("mlipns_distance",mlipns_distance)
+
+strcmp95_distance = textdistance.strcmp95(url_1, url_2)    # by some difference, still 1!!
+print("strcmp95_distance",strcmp95_distance)
+
+needleman_wunsch_distance = textdistance.needleman_wunsch(url_1, url_2)    # by some difference, still 1!!
+print("needleman_wunsch_distance",needleman_wunsch_distance)
 
 
-
-def levenshtein_distance(s1, s2):
-    m, n = len(s1), len(s2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
-    
-    for i in range(m + 1):
-        dp[i][0] = i
-    for j in range(n + 1):
-        dp[0][j] = j
-    
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if s1[i-1] == s2[j-1]:
-                dp[i][j] = dp[i-1][j-1]
-            else:
-                dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1
-    
-    return dp[m][n]
-
-# Example usage
-sentence1 = "The quick brown fox"
-sentence2 = "The fast brown fox"
-
-distance = levenshtein_distance(url_1, url_2)
-print(f"Levenshtein distance: {distance}")
+print("\n")
