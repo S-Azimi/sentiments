@@ -5,4 +5,5 @@ results
 __pycache__
 *.bak
 *.backup
-AutoViz_Plots
+AutoViz_Plotsgit reset --hard HEAD
+
