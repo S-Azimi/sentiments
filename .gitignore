@@ -1,7 +1,8 @@
-.venv/
+.venv
 data
 results
 .git
 __pycache__
 *.bak
 *.backup
+AutoViz_Plots
