@@ -9,8 +9,9 @@ url_2 = "https://bankmelat.ir"
 import spacy
 
 nlp = spacy.load("en_core_web_md")
-doc1 = nlp("The bottle is empty")
-doc2 = nlp("There is nothing in the bottle")
+doc1 = nlp(url_1)
+doc2 = nlp(url_2)
+
 similarity = doc1.similarity(doc2)
 print(f"Similarity: {similarity}")
 
