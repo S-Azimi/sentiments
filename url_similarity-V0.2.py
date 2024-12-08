@@ -40,14 +40,12 @@ max_sim =0
 for token_1 in split_url_1:
     for token_2 in split_url_2:
         d = textdistance.jaro_winkler(token_1, token_2)
-        print("%.3f" %d)
         if d> max_sim: max_sim = d
 print(f"max similarity: {max_sim:.3f} ")
 
 # url_1="abcdefgh"
 # url_2="abdcefgh"
 
-# Using q-grams with Jaccard distance
 levenshtein_distance = textdistance.levenshtein(url_1, url_2)
 print("levenshtein_distance",levenshtein_distance)
 
