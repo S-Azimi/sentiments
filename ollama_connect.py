@@ -1,6 +1,7 @@
 
 import requests
 import json
+# request to Ollama server
 
 url= "http://localhost:11434/api/generate"
 headers = {'Content-Type': 'application/json'}
@@ -10,14 +11,21 @@ data = {
 }
 response = requests.post(url, headers=headers, data=json.dumps(data))
 
+response_text= ""
+for s in response.text.split('\n'):
+    try:
+        obj = json.loads(s)
+        response_text= response_text + obj["response"]
 
-# Print the raw response content
-print("Raw response content:")
-print(response.text)
-print("type:  ",type(response))
-# for text in response:
-#     print((text))
-    # print("-----------------------------------------------------")
+    except json.JSONDecodeError as e:
+        print("error!")
+
+print(response_text)
+
+
+
+
+
 if response.status_code == 200:
     try:
         print("JSON response:")
