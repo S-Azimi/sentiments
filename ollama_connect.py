@@ -28,15 +28,10 @@ print(response_text)
 
 if response.status_code == 200:
     try:
-        print("JSON response:")
+        print("\nJSON response:")
         print(response.json())
     except json.JSONDecodeError as e:
         print("Failed to decode JSON:", e)
 else:
     print("Error:", response.status_code, response.text)
 
-
-# if response.status_code == 200:
-#     print(response.json())
-# else:
-#     print("Error:", response.status_code, response.text)
